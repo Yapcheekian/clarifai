@@ -15,7 +15,7 @@ class Controller {
     @PostMapping("/")
     fun test(@RequestParam("image") file: MultipartFile): List<String?> {
         val byteArray = file.bytes
-        val client = ClarifaiBuilder("2875d249a25e4c6f8fcee992ce1662c2").buildSync()
+        val client = ClarifaiBuilder("KEY").buildSync()
         val generalModel = client.defaultModels.generalModel()
         val request = generalModel.predict().withInputs(
                 ClarifaiInput.forImage(byteArray)
